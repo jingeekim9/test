@@ -31,15 +31,32 @@ const Text = styled.div`
   font-size: 24px;
 `;
 
-function TodoItem({ todo, switchStatus, deleteTodo }) {
+// function TodoItem({ todo, switchStatus, deleteTodo }) {
+//   const onClickChange = () => {
+//     console.log("---------------");
+//     switchStatus(todo.id);
+//   };
+
+//   const onClickRemove = () => {
+//     deleteTodo(todo.id);
+//   };
+//   return (
+//     <Container>
+//       <Check onClick={onClickChange} isDone={todo.isDone} />
+//       <Text>{todo.text}</Text>
+//       <Remove src={Rubbish} onClick={onClickRemove} />
+//     </Container>
+//   );
+// }
+function TodoItem({ todo, deleteTodo, switchStatus }) {
+  const onClickRemove = () => {
+    deleteTodo(todo.id);
+  };
   const onClickChange = () => {
     console.log("---------------");
     switchStatus(todo.id);
   };
 
-  const onClickRemove = () => {
-    deleteTodo(todo.id);
-  };
   return (
     <Container>
       <Check onClick={onClickChange} isDone={todo.isDone} />
@@ -48,5 +65,4 @@ function TodoItem({ todo, switchStatus, deleteTodo }) {
     </Container>
   );
 }
-
 export default TodoItem;

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 const Title = styled.h1`
   font-size: 30px;
 `;
@@ -13,20 +17,18 @@ const DayName = styled.div`
 
 function TodoDate() {
   const today = new Date();
-  const dateString = today.toLocaleString("ko-KR", {
+  console.log(today);
+  const dayName = today.toLocaleString("en-US", { weekday: "long" });
+  const dateString = today.toLocaleString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
-  const dayName = today.toLocaleString("ko-KR", { weekday: "long" });
-  //   const todos = useTodoState();
-  //   const undoneTasks = todos.filter((todo) => !todo.done);
-
   return (
-    <>
+    <Wrapper>
       <Title>{dateString}</Title>
       <DayName>{dayName}</DayName>
-    </>
+    </Wrapper>
   );
 }
 

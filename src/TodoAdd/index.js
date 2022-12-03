@@ -32,17 +32,30 @@ function TodoAdd({ todos, updateTodo }) {
     text: "",
     isDone: false,
   });
+
   const addTodo = (e) => {
-    const { value } = e.target;
+    const { name, value } = e.target;
     setTodo({
       id: todos.length + 1,
       text: value,
       isDone: false,
     });
   };
+
   const onClickChange = () => {
+    if(todo.text == "")
+    {
+      alert("Please insert some text.");
+      return;
+    }
     updateTodo(todo);
+    setTodo({
+      id: null,
+      text: "",
+      isDone: false,
+    });
   };
+  console.log(todo);
   return (
     <Container>
       <Input
